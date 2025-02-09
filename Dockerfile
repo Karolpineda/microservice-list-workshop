@@ -1,10 +1,10 @@
-FROM golang:1.19-alpine
+FROM golang:1.21-alpine
 
 WORKDIR /app
 COPY . .
 
-RUN go mod tidy
-RUN go build -o main .
+RUN go mod download && go mod tidy
+RUN go build -o /app/main .
 
-EXPOSE 8099
-CMD ["./main"]
+EXPOSE 8096
+CMD ["/app/main"]
