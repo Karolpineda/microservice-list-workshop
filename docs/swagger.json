@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API de microservicio para gestión de workshops",
+        "title": "Workshop API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/health": {
+            "get": {
+                "description": "Retorna un mensaje que indica que el microservicio está en funcionamiento",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Health"
+                ],
+                "summary": "Verifica el estado del microservicio",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workshops": {
+            "get": {
+                "description": "Devuelve una lista JSON con todos los Workshops existentes en la base de datos",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Workshops"
+                ],
+                "summary": "Obtiene todos los Workshops",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Workshop"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Workshop": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
