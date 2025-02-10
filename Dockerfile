@@ -7,5 +7,5 @@ RUN go mod tidy
 RUN go build -o /app/main .
 
 EXPOSE 8096
-CMD ["./main"]
+CMD ["/app/main"]
 
