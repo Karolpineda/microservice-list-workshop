@@ -3,8 +3,9 @@ FROM golang:1.21-alpine
 WORKDIR /app
 COPY . .
 
-RUN go mod download && go mod tidy
+RUN go mod tidy
 RUN go build -o /app/main .
 
 EXPOSE 8096
 CMD ["/app/main"]
+
