@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	_ "microservicecreateworkshops/docs"
-	"microservicecreateworkshops/routes"
+	_ "microservicelistworkshops/docs"
+	"microservicelistworkshops/routes"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
